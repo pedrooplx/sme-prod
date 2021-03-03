@@ -1,0 +1,9 @@
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\bin\Debug\netcoreapp3.1\sme.data.deps.json
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\bin\Debug\netcoreapp3.1\sme.data.dll
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\bin\Debug\netcoreapp3.1\sme.data.pdb
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.csprojAssemblyReference.cache
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.AssemblyInfoInputs.cache
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.AssemblyInfo.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.csproj.CoreCompileInputs.cache
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.dll
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.data\obj\Debug\netcoreapp3.1\sme.data.pdb
