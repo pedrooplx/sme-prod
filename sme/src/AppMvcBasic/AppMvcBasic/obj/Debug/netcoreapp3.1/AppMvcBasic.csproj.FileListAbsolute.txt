@@ -453,3 +453,8 @@ C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasi
 C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll
 C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\AppMvcBasic.csprojAssemblyReference.cache
 C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Fornecedores\_Endereco.cshtml.g.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\Create.cshtml.g.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\Delete.cshtml.g.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\Details.cshtml.g.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\Edit.cshtml.g.cs
+C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\AppMvcBasic\AppMvcBasic\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\Index.cshtml.g.cs
