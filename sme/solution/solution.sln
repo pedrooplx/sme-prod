@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sme.app", "..\src\sme.app\sme.app.csproj", "{D366FE0F-5225-4BD6-82CF-4D8D58B6389D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sme.business", "..\src\sme.business\sme.business.csproj", "{EDD9C8BF-AF85-4886-B0A1-E5855CE36BFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sme.data", "..\src\sme.data\sme.data.csproj", "{85731805-D7A3-4417-BCFD-59815B47684A}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D366FE0F-5225-4BD6-82CF-4D8D58B6389D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D366FE0F-5225-4BD6-82CF-4D8D58B6389D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D366FE0F-5225-4BD6-82CF-4D8D58B6389D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D366FE0F-5225-4BD6-82CF-4D8D58B6389D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDD9C8BF-AF85-4886-B0A1-E5855CE36BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDD9C8BF-AF85-4886-B0A1-E5855CE36BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDD9C8BF-AF85-4886-B0A1-E5855CE36BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDD9C8BF-AF85-4886-B0A1-E5855CE36BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85731805-D7A3-4417-BCFD-59815B47684A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85731805-D7A3-4417-BCFD-59815B47684A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85731805-D7A3-4417-BCFD-59815B47684A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85731805-D7A3-4417-BCFD-59815B47684A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
