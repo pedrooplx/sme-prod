@@ -16,5 +16,13 @@ namespace sme.data.Context
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            //Adicionando mappings nas entidades
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SmeDbContext).Assembly);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
