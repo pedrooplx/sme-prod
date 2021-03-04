@@ -1,8 +1,0 @@
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\bin\Debug\netcoreapp3.1\sme.business.deps.json
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\bin\Debug\netcoreapp3.1\sme.business.dll
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\bin\Debug\netcoreapp3.1\sme.business.pdb
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\obj\Debug\netcoreapp3.1\sme.business.AssemblyInfoInputs.cache
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\obj\Debug\netcoreapp3.1\sme.business.AssemblyInfo.cs
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\obj\Debug\netcoreapp3.1\sme.business.csproj.CoreCompileInputs.cache
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\obj\Debug\netcoreapp3.1\sme.business.dll
-C:\Users\PHS\Documents\personal-projects\sme-prod\sme\src\sme.business\obj\Debug\netcoreapp3.1\sme.business.pdb
