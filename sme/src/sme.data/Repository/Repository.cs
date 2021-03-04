@@ -16,6 +16,12 @@ namespace sme.data.Repository
         protected readonly SmeDbContext context;
         protected readonly DbSet<TEntity> DbSet;
 
+        protected Repository(SmeDbContext context)
+        {
+            this.context = context;
+            DbSet = context.Set<TEntity>();
+        }
+
         public virtual async Task<IEnumerable<TEntity>> Buscar(Expression<Func<TEntity, bool>> predicate)
         {
             //AsNoTracking() retorna os dados do banco sem as informações da traking da task, então se torna mais performático
