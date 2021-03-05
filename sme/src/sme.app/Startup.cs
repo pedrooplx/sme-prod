@@ -40,6 +40,9 @@ namespace sme.app
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddControllersWithViews();
 
             services.AddScoped<SmeDbContext>();
