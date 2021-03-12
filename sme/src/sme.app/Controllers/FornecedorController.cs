@@ -13,7 +13,7 @@ using sme.business.Models;
 
 namespace sme.app.Controllers
 {
-    public class FornecedorController : Controller
+    public class FornecedorController : BaseController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IMapper _mapper;
