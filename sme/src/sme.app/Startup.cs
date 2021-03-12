@@ -42,8 +42,9 @@ namespace sme.app
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddAutoMapper(typeof(Startup));
-            
-            services.AddControllersWithViews();
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.AddRazorPages();
 
             services.AddScoped<SmeDbContext>();
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
