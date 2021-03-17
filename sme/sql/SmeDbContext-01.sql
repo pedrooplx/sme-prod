@@ -26,7 +26,7 @@ CREATE TABLE [Enderecos] (
     [FornecedorId] uniqueidentifier NOT NULL,
     [Logradouro] varchar(200) NOT NULL,
     [Numero] varchar(50) NOT NULL,
-    [Complemento] varchar(250) NOT NULL,
+    [Complemento] varchar(250) NULL,
     [CEP] varchar(8) NOT NULL,
     [Bairro] varchar(100) NOT NULL,
     [Cidade] varchar(100) NOT NULL,

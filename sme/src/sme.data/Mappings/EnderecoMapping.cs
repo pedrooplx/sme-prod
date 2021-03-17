@@ -26,7 +26,6 @@ namespace sme.data.Mappings
                 .HasColumnType("varchar(8)");
 
             builder.Property(e => e.Complemento)
-                .IsRequired()
                 .HasColumnType("varchar(250)");
 
             builder.Property(e => e.Bairro)
