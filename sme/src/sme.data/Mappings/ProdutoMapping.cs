@@ -21,7 +21,7 @@ namespace sme.data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(1000)");
 
-            builder.Property(p => p.Descricao)
+            builder.Property(p => p.Imagem)
                 .IsRequired()
                 .HasColumnType("varchar(200)");
 

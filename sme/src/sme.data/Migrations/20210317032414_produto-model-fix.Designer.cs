@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using sme.data.Context;
 
 namespace sme.data.Migrations
 {
     [DbContext(typeof(SmeDbContext))]
-    partial class SmeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210317032414_produto-model-fix")]
+    partial class produtomodelfix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
