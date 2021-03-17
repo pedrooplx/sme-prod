@@ -26,6 +26,7 @@ namespace sme.app.ViewModels
         [StringLength(1000, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres.", MinimumLength = 10)]
         public string Descricao { get; set; }
 
+        [DisplayName("Nome do Produto")]
         public IFormFile ImagemUpload { get; set; }
         public string Imagem { get; set; }
 
