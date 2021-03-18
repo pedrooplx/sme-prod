@@ -34,7 +34,7 @@ namespace sme.data.Repository
 
         public virtual async Task<IList<TEntity>> ObterTodos()
         {
-            return await DbSet.ToListAsync();
+            return await DbSet.AsNoTracking().ToListAsync();
         }
 
         public virtual async Task Adicionar(TEntity entity)
