@@ -22,4 +22,8 @@
     <ProjectReference Include="..\sme.data\sme.data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>
