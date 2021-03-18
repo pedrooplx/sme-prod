@@ -82,9 +82,31 @@ namespace sme.app.Controllers
         {
             if (id != produtoViewModel.Id) return NotFound();
 
+            var produtoAtualizacao = await ObterProduto(id);
+            produtoViewModel.Fornecedor = produtoAtualizacao.Fornecedor;
+            produtoViewModel.Imagem = produtoAtualizacao.Imagem;
+
             if (!ModelState.IsValid) return View(produtoViewModel);
 
-            await _produtoRepository.Atualizar(_mapper.Map<Produto>(produtoViewModel));
+            if (produtoViewModel.ImagemUpload != null)
+            {
+                var prefixo = Guid.NewGuid() + "_" + produtoViewModel.ImagemUpload.FileName;
+                if (!await UploadImagem(produtoViewModel.ImagemUpload, prefixo))
+                {
+                    return View(produtoViewModel);
+                }
+
+                DeleteImagem(produtoAtualizacao.Imagem);
+
+                produtoAtualizacao.Imagem = prefixo;
+            }
+
+            produtoAtualizacao.Nome = produtoViewModel.Nome;
+            produtoAtualizacao.Descricao = produtoViewModel.Descricao;
+            produtoAtualizacao.Valor = produtoViewModel.Valor;
+            produtoAtualizacao.Ativo = produtoViewModel.Ativo;
+
+            await _produtoRepository.Atualizar(_mapper.Map<Produto>(produtoAtualizacao));
 
             return RedirectToAction("Index");
         }
@@ -140,6 +162,13 @@ namespace sme.app.Controllers
             }
 
             return true;
+        }
+
+        private bool DeleteImagem(string prefixo)
+        {
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", prefixo);
+            System.IO.File.Delete(path);
+            return System.IO.File.Exists(path) ? false : true;
         }
     }
 }
