@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using sme.app.Extentions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +32,7 @@ namespace sme.app.ViewModels
         public string Imagem { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório.")]
+        [Moeda]
         public decimal Valor { get; set; }
 
         [ScaffoldColumn(false)] //Para não ser criado como campo

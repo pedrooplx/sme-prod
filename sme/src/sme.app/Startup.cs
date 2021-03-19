@@ -3,16 +3,20 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using sme.app.Data;
+using sme.app.Extentions;
 using sme.business.Interfaces;
 using sme.data.Context;
 using sme.data.Repository;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -47,16 +51,16 @@ namespace sme.app
             services.AddAutoMapper(typeof(Startup));
 
             services.AddControllersWithViews(o => {
-                o.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((x, y) => "O valor preenchido ï¿½ invï¿½lido para este campo.");
+                o.ModelBindingMessageProvider.SetAttemptedValueIsInvalidAccessor((x, y) => "O valor preenchido é inválido para este campo.");
                 o.ModelBindingMessageProvider.SetMissingBindRequiredValueAccessor(x  => "Este campo precisa ser preenchido.");
                 o.ModelBindingMessageProvider.SetMissingKeyOrValueAccessor(()  => "Este campo precisa ser preenchido.");
-                o.ModelBindingMessageProvider.SetMissingRequestBodyRequiredValueAccessor(()  => "O body da requisiï¿½ï¿½o nï¿½o pode estar vazio.");
-                o.ModelBindingMessageProvider.SetNonPropertyAttemptedValueIsInvalidAccessor((x)  => "O valor preenchido ï¿½ invï¿½lido para este campo.");
-                o.ModelBindingMessageProvider.SetNonPropertyUnknownValueIsInvalidAccessor(()  => "O valor preenchido ï¿½ invï¿½lido para este campo.");
-                o.ModelBindingMessageProvider.SetNonPropertyValueMustBeANumberAccessor(()  => "O campo deve ser numï¿½rico.");
-                o.ModelBindingMessageProvider.SetUnknownValueIsInvalidAccessor((x)  => "O valor preenchido ï¿½ invï¿½lido para este campo.");
-                o.ModelBindingMessageProvider.SetValueIsInvalidAccessor((x)  => "O valor preenchido ï¿½ invï¿½lido para este campo.");
-                o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x  => "O campo deve ser numï¿½rico.");
+                o.ModelBindingMessageProvider.SetMissingRequestBodyRequiredValueAccessor(()  => "O body da requisição não pode estar vazio.");
+                o.ModelBindingMessageProvider.SetNonPropertyAttemptedValueIsInvalidAccessor((x)  => "O valor preenchido é inválido para este campo.");
+                o.ModelBindingMessageProvider.SetNonPropertyUnknownValueIsInvalidAccessor(()  => "O valor preenchido é inválido para este campo.");
+                o.ModelBindingMessageProvider.SetNonPropertyValueMustBeANumberAccessor(()  => "O campo deve ser numérico.");
+                o.ModelBindingMessageProvider.SetUnknownValueIsInvalidAccessor((x)  => "O valor preenchido é inválido para este campo.");
+                o.ModelBindingMessageProvider.SetValueIsInvalidAccessor((x)  => "O valor preenchido é inválido para este campo.");
+                o.ModelBindingMessageProvider.SetValueMustBeANumberAccessor(x  => "O campo deve ser numérico.");
                 o.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(x  => "Este campo precisa ser preenchido.");
 
             }).AddRazorRuntimeCompilation();
@@ -66,6 +70,7 @@ namespace sme.app
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<IFornecedorRepository, FornecedorRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+            services.AddSingleton<IValidationAttributeAdapterProvider, MoedaValidationAttribuiteAdapterProvider>(); //Adicionando atributo personalizado no client-side
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
