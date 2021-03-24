@@ -1,0 +1,68 @@
+﻿@model sme.app.ViewModels.FornecedorViewModel
+
+<div class="mt-4">
+    <div>
+        <hr />
+        <h4>Endereço</h4>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Logradouro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Numero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Complemento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Bairro)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.CEP)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Cidade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Endereco.Estado)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.Endereco.Logradouro
+                </td>
+                <td>
+                    @Model.Endereco.Numero
+                </td>
+                <td>
+                    @Model.Endereco.Complemento
+                </td>
+                <td>
+                    @Model.Endereco.Bairro
+                </td>
+                <td>
+                    @Model.Endereco.CEP
+                </td>
+                <td>
+                    @Model.Endereco.Cidade
+                </td>
+                <td>
+                    @Model.Endereco.Estado
+                </td>
+                <td>
+                    <a class="btn btn-warning"><span title="Editar" class="fa fa-pencil-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
