@@ -23,7 +23,7 @@ namespace sme.business.Services
         {
             //Validar o estado da entidade
             if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)
-                && !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
+                || !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
 
             //Validar se existe fornecedor com o mesmo documento
             if (_fornecedorRepository.Buscar(f => f.Documento == fornecedor.Documento).Result.Any())

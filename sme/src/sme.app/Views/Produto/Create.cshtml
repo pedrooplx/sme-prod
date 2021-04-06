@@ -9,7 +9,10 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create" enctype="multipart/form-data">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            @*ViewComponent para exibir erros*@
+            <vc:Summary></vc:Summary>
+
             <div class="form-group">
                 <label asp-for="FornecedorId" class="control-label"></label>
                 <select asp-for="FornecedorId" class="form-control" asp-items="@(new SelectList(Model.Fornecedores, "Id", "Nome"))">

@@ -62,6 +62,9 @@ namespace sme.app.Controllers
             var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
             await _fornecedorService.Adicionar(fornecedor);
 
+            //Retornar notificação para user se algo não está válido
+            if (!OperacaoValida()) return View(fornecedorViewModel);
+
             return RedirectToAction("Index");
         }
 
@@ -87,6 +90,9 @@ namespace sme.app.Controllers
             var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
             await _fornecedorService.Atualizar(fornecedor);
 
+            //Retornar notificação para user se algo não está válido
+            if (!OperacaoValida()) return View(fornecedorViewModel);
+
             return RedirectToAction("Index");
         }
 
@@ -110,6 +116,9 @@ namespace sme.app.Controllers
             if (fornecedorViewModel == null) return NotFound();
 
             await _fornecedorService.Remover(id);
+
+            //Retornar notificação para user se algo não está válido
+            if (!OperacaoValida()) return View(fornecedorViewModel);
 
             return RedirectToAction("Index");
         }
