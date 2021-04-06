@@ -1,0 +1,1 @@
+Regras de negócios devem ser escritas dentro da camada de negócios, apenas validação de entidade e de retorno devem ser tratadas na camada de apresentação.

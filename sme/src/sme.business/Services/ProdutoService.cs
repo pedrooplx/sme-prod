@@ -1,5 +1,6 @@
 ﻿using sme.business.Interfaces;
 using sme.business.Models;
+using sme.business.Models.Validations;
 using System;
 using System.Threading.Tasks;
 
@@ -7,19 +8,25 @@ namespace sme.business.Services
 {
     public class ProdutoService : BaseService, IProdutoService
     {
-        public Task Adicionar(Produto produto)
+        private readonly IProdutoRepository _produtoRepository;
+
+        public async Task Adicionar(Produto produto)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;
+
+            await _produtoRepository.Adicionar(produto);
         }
 
-        public Task Atualizar(Produto produto)
+        public async  Task Atualizar(Produto produto)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;
+
+            await _produtoRepository.Atualizar(produto);
         }
 
-        public Task Remover(Guid id)
+        public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            await _produtoRepository.Remover(id);
         }
     }
 }

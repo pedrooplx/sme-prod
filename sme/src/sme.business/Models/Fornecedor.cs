@@ -12,6 +12,6 @@ namespace sme.business.Models
 
         //EF Relations
         public Endereco Endereco { get; set; }
-        public IEnumerable<Produto> Produto { get; set; }
+        public IEnumerable<Produto> Produtos { get; set; }
     }
 }
