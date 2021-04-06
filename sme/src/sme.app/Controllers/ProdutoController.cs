@@ -143,6 +143,8 @@ namespace sme.app.Controllers
             //Retornar notificação para user se algo não está válido
             if (!OperacaoValida()) return View(produtoViewModel);
 
+            TempData["Sucesso"] = "Produto excluído com sucesso!";
+
             return RedirectToAction("Index");
         }
         private async Task<ProdutoViewModel> ObterProduto(Guid id)

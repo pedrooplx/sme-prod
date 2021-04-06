@@ -4,7 +4,12 @@
     ViewData["Title"] = "Lista de Produtos";
 }
 
-<h1>@ViewData["Title"]</h1><hr />
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+
+@*ViewComponent para exibir mensagens*@
+<vc:Summary></vc:Summary>
 
 <p>
     <a class="btn btn-info" asp-action="Create">Novo Produto</a>

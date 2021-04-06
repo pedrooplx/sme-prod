@@ -120,6 +120,8 @@ namespace sme.app.Controllers
             //Retornar notificação para user se algo não está válido
             if (!OperacaoValida()) return View(fornecedorViewModel);
 
+            TempData["Sucesso"] = "Fornecedor excluído com sucesso!";
+
             return RedirectToAction("Index");
         }
 
