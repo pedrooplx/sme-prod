@@ -10,6 +10,11 @@ namespace sme.business.Services
     {
         private readonly IProdutoRepository _produtoRepository;
 
+        public ProdutoService(IProdutoRepository produtoRepository)
+        {
+            _produtoRepository = produtoRepository;
+        }
+
         public async Task Adicionar(Produto produto)
         {
             if (!ExecutarValidacao(new ProdutoValidation(), produto)) return;

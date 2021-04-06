@@ -24,7 +24,7 @@ namespace sme.data.Repository
         {
             return await context.Fornecedores.AsNoTracking()
                 .Include(f => f.Endereco)
-                .Include(f => f.Produto)
+                .Include(f => f.Produtos)
                 .FirstOrDefaultAsync(f => f.Id == id);
         }
     }

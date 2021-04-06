@@ -26,7 +26,7 @@ namespace sme.data.Mappings
                 .WithOne(e => e.Fornecedor);
 
             // 1 : N => Fornecedor : Produtos
-            builder.HasMany(f => f.Produto)
+            builder.HasMany(f => f.Produtos)
                 .WithOne(p => p.Fornecedor)
                 .HasForeignKey(p => p.FornecedorId);
 
