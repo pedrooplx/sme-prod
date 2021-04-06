@@ -7,8 +7,10 @@
   <ItemGroup>
     <Folder Include="Models\Enums\" />
     <Folder Include="Notifications\" />
-    <Folder Include="Validations\" />
-    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.4" />
   </ItemGroup>
 
 </Project>
