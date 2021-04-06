@@ -1,4 +1,5 @@
 ﻿using sme.business.Models;
+using System;
 using System.Threading.Tasks;
 
 namespace sme.business.Interfaces
@@ -8,5 +9,6 @@ namespace sme.business.Interfaces
         Task Adicionar(Fornecedor fornecedor);
         Task Atualizar(Fornecedor fornecedor);
         Task AtualizarEndereco(Endereco endereco);
+        Task Remover(Guid id);
     }
 }

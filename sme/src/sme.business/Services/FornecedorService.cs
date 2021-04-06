@@ -11,18 +11,24 @@ namespace sme.business.Services
         public async Task Adicionar(Fornecedor fornecedor)
         {
             //Validar o estado da entidade
-            if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)) return;
+            if (!ExecutarValidacao(new FornecedorValidation(), fornecedor) 
+                && !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
 
             //Validar se não existe fornecedor com o mesmo documento
             return;
         }
 
-        public Task Atualizar(Fornecedor fornecedor)
+        public async Task Atualizar(Fornecedor fornecedor)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)) return;
         }
 
-        public Task AtualizarEndereco(Endereco endereco)
+        public async Task AtualizarEndereco(Endereco endereco)
+        {
+            if (!ExecutarValidacao(new EnderecoValidation(), endereco)) return;
+        }
+
+        public Task Remover(Guid id)
         {
             throw new NotImplementedException();
         }
