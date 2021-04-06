@@ -10,7 +10,7 @@ namespace sme.business.Services
     {
         private readonly IProdutoRepository _produtoRepository;
 
-        public ProdutoService(IProdutoRepository produtoRepository)
+        public ProdutoService(IProdutoRepository produtoRepository, INotificador notificador) : base(notificador)
         {
             _produtoRepository = produtoRepository;
         }
@@ -32,6 +32,11 @@ namespace sme.business.Services
         public async Task Remover(Guid id)
         {
             await _produtoRepository.Remover(id);
+        }
+
+        public void Dispose()
+        {
+            _produtoRepository?.Dispose();
         }
     }
 }

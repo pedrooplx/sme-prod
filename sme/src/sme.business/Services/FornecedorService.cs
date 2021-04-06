@@ -12,7 +12,7 @@ namespace sme.business.Services
         private readonly IFornecedorRepository _fornecedorRepository;
         private readonly IEnderecoRepository _enderecoRepository;
 
-        public FornecedorService(IFornecedorRepository fornecedorRepository, IEnderecoRepository enderecoRepository)
+        public FornecedorService(IFornecedorRepository fornecedorRepository, IEnderecoRepository enderecoRepository, INotificador notificador) : base(notificador)
         {
             _fornecedorRepository = fornecedorRepository;
             _enderecoRepository = enderecoRepository;
@@ -22,7 +22,7 @@ namespace sme.business.Services
         public async Task Adicionar(Fornecedor fornecedor)
         {
             //Validar o estado da entidade
-            if (!ExecutarValidacao(new FornecedorValidation(), fornecedor) 
+            if (!ExecutarValidacao(new FornecedorValidation(), fornecedor)
                 && !ExecutarValidacao(new EnderecoValidation(), fornecedor.Endereco)) return;
 
             //Validar se existe fornecedor com o mesmo documento
@@ -54,8 +54,8 @@ namespace sme.business.Services
             if (!ExecutarValidacao(new EnderecoValidation(), endereco)) return;
 
             await _enderecoRepository.Atualizar(endereco);
-        }
 
+        }
         public async Task Remover(Guid id)
         {
             if (_fornecedorRepository.ObterFornecedorProdutosEndereco(id).Result.Produtos.Any())
@@ -64,6 +64,12 @@ namespace sme.business.Services
             }
 
             await _fornecedorRepository.Remover(id);
+        }
+
+        public void Dispose()
+        {
+            _fornecedorRepository?.Dispose();
+            _enderecoRepository?.Dispose();
         }
     }
 }
