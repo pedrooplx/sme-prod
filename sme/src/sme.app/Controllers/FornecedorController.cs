@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using sme.app.Data;
+using sme.app.Extentions;
 using sme.app.ViewModels;
 using sme.business.Interfaces;
 using sme.business.Models;
 
 namespace sme.app.Controllers
 {
+    [Authorize]
     [Route("Fornecedor")]
     public class FornecedorController : BaseController
     {
@@ -30,12 +33,14 @@ namespace sme.app.Controllers
             _fornecedorService = fornecedorService;
         }
 
+        [AllowAnonymous]
         [Route("Lista")]
         public async Task<IActionResult> Index()
         {
             return View(_mapper.Map<IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.ObterTodos()));
         }
 
+        [AllowAnonymous]
         [Route("Detalhes/{id:guid}")]
         public async Task<IActionResult> Details(Guid id)
         {
@@ -46,12 +51,14 @@ namespace sme.app.Controllers
             return View(fornecedorViewModel);
         }
 
+        [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [Route("Novo")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [Route("Novo")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -68,6 +75,7 @@ namespace sme.app.Controllers
             return RedirectToAction("Index");
         }
 
+        [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/{id:guid}")]
         public async Task<IActionResult> Edit(Guid id)
         {
@@ -78,6 +86,7 @@ namespace sme.app.Controllers
             return View(fornecedorViewModel);
         }
 
+        [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -96,6 +105,7 @@ namespace sme.app.Controllers
             return RedirectToAction("Index");
         }
 
+        [ClaimsAuthorize("Fornecedor", "Excluir")]
         [Route("Excluir/{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
@@ -106,6 +116,7 @@ namespace sme.app.Controllers
             return View(fornecedorViewModel);
         }
 
+        [ClaimsAuthorize("Fornecedor", "Excluir")]
         [Route("Excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -125,6 +136,7 @@ namespace sme.app.Controllers
             return RedirectToAction("Index");
         }
 
+        [AllowAnonymous]
         [Route("Endereco/{id:guid}")]
         public async Task<IActionResult> ObterEndereco(Guid id)
         {
@@ -138,6 +150,7 @@ namespace sme.app.Controllers
             return PartialView("_DetalhesEndereco", fornecedor);
         }
 
+        [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/Endereco/{id:guid}")]
         public async Task<IActionResult> AtualizarEndereco(Guid id)
         {
@@ -148,6 +161,7 @@ namespace sme.app.Controllers
             return PartialView("_AtualizarEndereco", new FornecedorViewModel { Endereco = fornecedor.Endereco });
         }
 
+        [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/Endereco/{id:guid}")]
         [HttpPost]
         [ValidateAntiForgeryToken]

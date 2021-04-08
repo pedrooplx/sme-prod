@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using sme.app.Extentions;
 using sme.app.ViewModels;
 using sme.business.Interfaces;
 using sme.business.Models;
@@ -11,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace sme.app.Controllers
 {
+    [Authorize]
     public class ProdutoController : BaseController
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -30,11 +33,13 @@ namespace sme.app.Controllers
             _produtoService = produtoService;
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(_mapper.Map<IEnumerable<ProdutoViewModel>>(await _produtoRepository.ObterProdutosFornecedores()));
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Details(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);
@@ -44,11 +49,13 @@ namespace sme.app.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto","Adicionar")]
         public async Task<IActionResult> Create()
         {
             return View(await PopularFornecedores(new ProdutoViewModel()));
         }
 
+        [ClaimsAuthorize("Produto", "Adicionar")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProdutoViewModel produtoViewModel)
@@ -74,6 +81,7 @@ namespace sme.app.Controllers
             return RedirectToAction("Index");
         }
 
+        [ClaimsAuthorize("Produto", "Editar")]
         public async Task<IActionResult> Edit(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);
@@ -83,6 +91,7 @@ namespace sme.app.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Editar")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProdutoViewModel produtoViewModel)
@@ -121,6 +130,7 @@ namespace sme.app.Controllers
             return RedirectToAction("Index");
         }
 
+        [ClaimsAuthorize("Produto", "Excluir")]
         public async Task<IActionResult> Delete(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);
@@ -130,6 +140,7 @@ namespace sme.app.Controllers
             return View(produtoViewModel);
         }
 
+        [ClaimsAuthorize("Produto", "Excluir")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
