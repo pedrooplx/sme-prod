@@ -13,7 +13,5 @@ namespace sme.app.Data
             : base(options)
         {
         }
-        public DbSet<sme.app.ViewModels.ProdutoViewModel> ProdutoViewModel { get; set; }
-
     }
 }
