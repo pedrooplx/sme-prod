@@ -28,6 +28,6 @@ namespace sme.app.ViewModels
 
         //EF Relations
         public EnderecoViewModel Endereco { get; set; }
-        public IEnumerable<ProdutoViewModel> Produto { get; set; }
+        public IEnumerable<ProdutoViewModel> Produtos { get; set; }
     }
 }

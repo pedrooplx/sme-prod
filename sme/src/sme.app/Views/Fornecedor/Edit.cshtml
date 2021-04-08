@@ -56,11 +56,11 @@
     <partial name="_DetalhesEndereco" />
 </div>
 
-@if (Model.Produto.Count() > 1)
+@if (Model.Produtos.Count() > 1)
 {
     <div>
         <hr /><h4>Produtos</h4>
-        <partial name="../Produto/_ListaProdutos" model="@Model.Produto" />
+        <partial name="../Produto/_ListaProdutos" model="@Model.Produtos" />
     </div>
 }
 
