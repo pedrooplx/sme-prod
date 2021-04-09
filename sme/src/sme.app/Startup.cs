@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using sme.app.Configurations;
+using sme.app.Data;
 using sme.data.Context;
 
 namespace sme.app
@@ -51,6 +52,7 @@ namespace sme.app
             using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
             {
                 serviceScope.ServiceProvider.GetRequiredService<SmeDbContext>().Database.Migrate();
+                serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>().Database.Migrate();
             }
 
             if (env.IsDevelopment())
