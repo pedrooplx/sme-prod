@@ -57,7 +57,6 @@ namespace sme.app.Controllers
 
         [ClaimsAuthorize("Produto", "Adicionar")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ProdutoViewModel produtoViewModel)
         {
             if (!ModelState.IsValid)
@@ -93,7 +92,6 @@ namespace sme.app.Controllers
 
         [ClaimsAuthorize("Produto", "Editar")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, ProdutoViewModel produtoViewModel)
         {
             if (id != produtoViewModel.Id) return NotFound();
@@ -142,7 +140,6 @@ namespace sme.app.Controllers
 
         [ClaimsAuthorize("Produto", "Excluir")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var produtoViewModel = await ObterProduto(id);

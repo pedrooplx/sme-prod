@@ -61,7 +61,6 @@ namespace sme.app.Controllers
         [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [Route("Novo")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FornecedorViewModel fornecedorViewModel)
         {
             if (!ModelState.IsValid) return View(fornecedorViewModel);
@@ -89,7 +88,6 @@ namespace sme.app.Controllers
         [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(Guid id, FornecedorViewModel fornecedorViewModel)
         {
             if (id != fornecedorViewModel.Id) return NotFound();
@@ -119,7 +117,6 @@ namespace sme.app.Controllers
         [ClaimsAuthorize("Fornecedor", "Excluir")]
         [Route("Excluir/{id:guid}")]
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
             var fornecedorViewModel = await ObterFornecedorEndereco(id);
@@ -164,7 +161,6 @@ namespace sme.app.Controllers
         [ClaimsAuthorize("Fornecedor", "Editar")]
         [Route("Editar/Endereco/{id:guid}")]
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AtualizarEndereco(FornecedorViewModel fornecedorViewModel)
         {
             //Removendo itens da validação da model state de endereço
